@@ -1,0 +1,169 @@
+<form class="form-horizontal" autocomplete="off" #inputForm="ngForm">
+    <div class="card-header">
+        <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
+        <h3>Create/edit </h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Name:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="name" [(ngModel)]="data.name" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Screen:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="screen" [(ngModel)]="data.screen" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+            <label class="col-md-2 col-form-label " for="account ">
+                Category
+            </label>
+            <div class="col-md-4 ">
+                <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
+                    <mat-label class="text">Choose an category</mat-label>
+                    <mat-select [(value)]="data.cate_id" required>
+                        <mat-option *ngFor="let cate of categories" [value]="cate._id">
+                            {{cate.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <label class="col-md-2 col-form-label">
+                Camera:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="camera" [(ngModel)]="data.camera" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+            <label class="col-md-2 col-form-label " for="account ">
+                Brand
+            </label>
+            <div class="col-md-4 ">
+                <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
+                    <mat-label class="text">Choose an brand</mat-label>
+                    <mat-select [(value)]="data.brand_id" required>
+                        <mat-option *ngFor="let brand of brands" [value]="brand._id">
+                            {{brand.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <label class="col-md-2 col-form-label">
+                SeflfieCamera:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="selfieCamera" [(ngModel)]="data.selfieCamera" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Price
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="price" [(ngModel)]="data.price" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Ram:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="ram" [(ngModel)]="data.ram" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Saleprice
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="salePrice" [(ngModel)]="data.salePrice" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Capacity:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="capacity" [(ngModel)]="data.capacity" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Quantity
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="quantity" [(ngModel)]="data.quantity" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                CPU:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="cpu" [(ngModel)]="data.cpu" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                GPU
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="gpu" [(ngModel)]="data.gpu" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Power:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="power" [(ngModel)]="data.power" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Sim:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="sim" [(ngModel)]="data.sim" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                System:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="system" [(ngModel)]="data.system" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Origin:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="origin" [(ngModel)]="data.origin" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Launched:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="launched" [(ngModel)]="data.launched" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-2 col-form-label">
+                Description:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="description" [(ngModel)]="data.description" required />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Images:
+            </label>
+            <div class="col-md-4">
+                <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image"
+                    autocomplete="off" />
+            </div>
+        </div>
+    </div>
+    <div class="mat-dialog-actions">
+        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close
+            (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="inputForm.form.invalid"
+            class="saving-btn" mat-button cdkFocusInitial>Save</button>
+    </div>
+</form>
