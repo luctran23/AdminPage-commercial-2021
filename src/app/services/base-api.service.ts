@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export abstract class BaseApiService {
-  protected baseUrl = 'http://192.168.1.162:3000/';
+   protected baseUrl = 'http://192.168.1.162:3000/';
+  //protected baseUrl = 'http://localhost:3001/';
   protected get rootUrl() {
     return this.baseUrl +'api/' + this.changeUrl();
 }
@@ -18,6 +19,9 @@ export abstract class BaseApiService {
 
   getAllItems(): Observable<any> {
     return this.http.get<any>(this.rootUrl);
+  }
+  getSpecificItem(id: any): Observable<any> {
+    return this.http.get<any>(this.rootUrl + `/${id}`)
   }
   createItem(data: any): Observable<any> {
     return this.http.post<any>(this.rootUrl, data);

@@ -65,6 +65,19 @@ import {
 import { CreateEditLaptopsComponent } from 'src/app/modules/laptops/create-edit-laptops/create-edit-laptops.component';
 import { CamerasComponent } from 'src/app/modules/cameras/cameras.component';
 import { CreateEditCamerasComponent } from 'src/app/modules/cameras/create-edit-cameras/create-edit-cameras.component';
+import { AccessoriesComponent } from 'src/app/modules/accessories/accessories.component';
+import { CreateEditAccessoriesComponent } from 'src/app/modules/accessories/create-edit-accessories/create-edit-accessories.component';
+import { UsersComponent } from 'src/app/modules/users/users.component';
+import { CreateEditUsersComponent } from 'src/app/modules/users/create-edit-users/create-edit-users.component';
+import { AccountsComponent } from 'src/app/modules/accounts/accounts.component'
+import { CreateEditAccountsComponent } from 'src/app/modules/accounts/create-edit-accounts/create-edit-accounts.component';
+import { PromotionsComponent } from 'src/app/modules/promotions/promotions.component';
+import { CreateEditPromotionsComponent } from 'src/app/modules/promotions/create-edit-promotions/create-edit-promotions.component';
+import { BillsComponent } from 'src/app/modules/bills/bills.component';
+import { BillDetailComponent } from 'src/app/modules/bills/bill-detail/bill-detail.component';
+import { CommentsComponent } from 'src/app/modules/comments/comments.component';
+import { ReplyCommentsComponent } from 'src/app/modules/comments/reply-comments/reply-comments.component';
+
 
 @NgModule({
   declarations: [
@@ -82,6 +95,18 @@ import { CreateEditCamerasComponent } from 'src/app/modules/cameras/create-edit-
     CreateEditLaptopsComponent,
     CamerasComponent,
     CreateEditCamerasComponent,
+    AccessoriesComponent,
+    CreateEditAccessoriesComponent,
+    UsersComponent,
+    CreateEditUsersComponent,
+    AccountsComponent,
+    CreateEditAccountsComponent,
+    PromotionsComponent,
+    CreateEditPromotionsComponent,
+    BillsComponent,
+    BillDetailComponent,
+    CommentsComponent,
+    ReplyCommentsComponent,
   ],
   imports: [
     CommonModule,

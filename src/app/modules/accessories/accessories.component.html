@@ -1,0 +1,87 @@
+<div>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <h1>Laptops</h1>
+          </div>
+          <div class="col-6 text-right">
+            <a href="javascript:;" class="btn bg-blue" (click)="createItem()">
+              <i class="fa fa-plus-square"></i>
+              Create
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content px-2">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <button type="button" class="btn bg-blue">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <input type="text" class="form-control" name="keyword" [(ngModel)]="searchText" />
+            </div>
+          </div>
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead class="bg-light">
+                <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Category</th>
+                  <th style="width: 200px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let item of accessories| filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 5, currentPage: page, totalItems: totalRecords}">
+                  <td>{{ accessories.indexOf(item) + 1}}</td>
+                  <td>{{ item.name }}</td>
+                  <td>
+                    <img [src]="item.descriptionImages[0]" alt="img" width="20px" height="20px">
+                  </td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.cate_name }}</td>
+                  <td>
+                    <button type="button" class="btn btn-sm bg-secondary" (click)="editItem(item)">
+                      <i class="fas fa-pencil-alt"></i>
+                      Edit
+                    </button>
+                    <button type="button" class="btn btn-sm bg-danger mx-2" (click)="deleteItem(item)">
+                      <i class="fas fa-trash"></i>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+  
+          </div>
+          <div class="card-footer bg-light border-top">
+            <div class="row">
+              <div class="col-sm-4 col-12 text-sm-left text-center">
+                <button class="btn btn-secondary" (click)="refresh()">
+                  <i class="fas fa-redo-alt"></i>
+                </button>
+              </div>
+  
+              <pagination-controls id="items_pagination" (pageChange)="page = $event" maxSize="6" directionLinks="true"
+                autoHide="true" responsive="true" previousLabel="Prev" nextLabel="Next"
+                screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

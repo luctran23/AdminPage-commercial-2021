@@ -31,10 +31,12 @@ export class PhonesComponent implements OnInit {
     })
   }
   createItem() {
-    let item = {};
+    let item = {} as any;
+    item.descriptionImages = [];
     this.openDialog(item);
   }
   editItem(item) {
+    console.log("emit edititem: ", item);
     this.openDialog(item);
   }
   deleteItem(item) {
@@ -94,4 +96,5 @@ export class PhonesComponent implements OnInit {
   refresh() {
     this.getAllPhones();
   }
+  
 }

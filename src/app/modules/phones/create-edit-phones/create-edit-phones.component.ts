@@ -21,10 +21,11 @@ export class CreateEditPhonesComponent implements OnInit {
   downloadURL: Observable<string>;
   constructor(public dialogRef: MatDialogRef<CreateEditPhonesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private phoneService: PhonesService,
     private cateService: CategoriesService,
     private brandService: BrandsService,
-    private storage: AngularFireStorage) { }
+    private storage: AngularFireStorage) {
+      console.log("url: ", this.data.descriptionImages);
+     }
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -57,8 +58,9 @@ export class CreateEditPhonesComponent implements OnInit {
           this.downloadURL.subscribe(url => {
             if (url) {
               this.images.push(url);
-              console.log("url: ", url);
+              //console.log("url: ", url);
               this.data.descriptionImages = this.images;
+              console.log("url: ", this.data.descriptionImages);
             }
           });
         })

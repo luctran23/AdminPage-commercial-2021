@@ -1,0 +1,51 @@
+<form class="form-horizontal" autocomplete="off" #inputForm="ngForm">
+    <div class="card-header">
+        <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
+        <h3>Create/edit </h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row required">
+
+            <label class="col-md-4 col-form-label">
+                Name
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="price" [(ngModel)]="data.name" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+            
+            <label class="col-md-4 col-form-label">
+                Email
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="salePrice" [(ngModel)]="data.email" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+           
+            <label class="col-md-4 col-form-label">
+                Address:
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="description" [(ngModel)]="data.address" required />
+            </div>
+        </div>
+        <div class="form-group row required">
+            
+            <label class="col-md-4 col-form-label">
+                Phone:
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="origin" [(ngModel)]="data.phone" required />
+            </div>
+        </div>
+        
+    </div>
+    <div class="mat-dialog-actions">
+        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close
+            (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="inputForm.form.invalid"
+            class="saving-btn" mat-button cdkFocusInitial>Save</button>
+    </div>
+</form>

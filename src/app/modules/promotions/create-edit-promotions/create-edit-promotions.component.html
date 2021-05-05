@@ -1,0 +1,56 @@
+<form class="form-horizontal" autocomplete="off" #inputForm="ngForm">
+    <div class="card-header">
+        <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
+        <h3>Create/edit </h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row required">
+
+            <label class="col-md-4 col-form-label">
+                Name
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="username" [(ngModel)]="data.name" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+            <label class="col-md-4 col-form-label " for="account ">
+                Category
+            </label>
+            <div class="col-md-8">
+                <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
+                    <mat-label class="text">Choose an category</mat-label>
+                    <mat-select [(value)]="data.cate_id" (selectionChange)="onSelectedCate($event)" required>
+                        <mat-option *ngFor="let cate of categories" [value]="cate._id">
+                            {{cate.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-group row required ">
+            <label class="col-md-4 col-form-label">
+                Product
+            </label>
+            <div class="col-md-8">
+                <form class="example-form">
+                    <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
+                        <mat-select [(value)]="data.prod_id" required>
+                            <input type="text" matInput placeholder="Prod name" autocomplete="off" name="search" [(ngModel)]="searchText">
+                            <mat-option *ngFor="let item of products | filter:searchText" [value]="item._id">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="mat-dialog-actions">
+        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close
+            (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="inputForm.form.invalid"
+            class="saving-btn" mat-button cdkFocusInitial>Save</button>
+    </div>
+</form>

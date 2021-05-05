@@ -46,7 +46,7 @@
               </thead>
               <tbody>
                 <tr
-                  *ngFor="let item of categories | filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 2, currentPage: page, totalItems: totalRecords}">
+                  *ngFor="let item of categories | filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 5, currentPage: page, totalItems: totalRecords}">
                   <td>{{ categories.indexOf(item) + 1}}</td>
                   <td>{{ item.name }}</td>
                   <td>

@@ -1,0 +1,36 @@
+<form class="form-horizontal" autocomplete="off" #inputForm="ngForm">
+    <div class="card-header">
+        <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
+        <h3>Create/edit </h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row required">
+
+            <label class="col-md-4 col-form-label">
+                Username
+            </label>
+            <div class="col-md-8">
+                <input type="text" class=" form-control" name="username" [(ngModel)]="data.username" required />
+            </div>
+        </div>
+        <div class="form-group row required ">
+            
+            <label class="col-md-4 col-form-label">
+                Password
+            </label>
+            <div class="col-md-6">
+                <input [type]="inputType" class=" form-control" name="password" [(ngModel)]="data.password" required />
+            </div>
+            <div class="col-md-2">
+                <mat-icon style="cursor: pointer;" (click)="showHidePassword()">remove_red_eye</mat-icon>
+            </div>
+        </div>
+        
+    </div>
+    <div class="mat-dialog-actions">
+        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close
+            (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="inputForm.form.invalid"
+            class="saving-btn" mat-button cdkFocusInitial>Save</button>
+    </div>
+</form>

@@ -33,6 +33,7 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th style="width: 200px;">Actions</th>
               </tr>
             </thead>
@@ -40,6 +41,7 @@
               <tr *ngFor="let item of brands | filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 5, currentPage: page, totalItems: totalRecords}">
                 <td>{{ brands.indexOf(item) + 1}}</td>
                 <td>{{ item.name }}</td>
+                <td>{{ item.cate_name }}</td>
                 <td>
                   <button type="button" class="btn btn-sm bg-secondary" (click)="editItem(item)">
                     <i class="fas fa-pencil-alt"></i>

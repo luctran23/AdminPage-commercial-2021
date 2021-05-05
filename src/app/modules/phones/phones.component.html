@@ -33,8 +33,10 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Category</th>
                 <th style="width: 200px;">Actions</th>
               </tr>
             </thead>
@@ -43,8 +45,12 @@
                 *ngFor="let item of phones| filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 5, currentPage: page, totalItems: totalRecords}">
                 <td>{{ phones.indexOf(item) + 1}}</td>
                 <td>{{ item.name }}</td>
+                <td>
+                  <img [src]="item.descriptionImages[0]" alt="img" width="20px" height="20px">
+                </td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.quantity }}</td>
+                <td>{{ item.cate_name }}</td>
                 <td>
                   <button type="button" class="btn btn-sm bg-secondary" (click)="editItem(item)">
                     <i class="fas fa-pencil-alt"></i>
@@ -78,4 +84,5 @@
       </div>
     </div>
   </section>
+  
 </div>
