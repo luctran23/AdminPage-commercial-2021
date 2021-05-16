@@ -77,7 +77,9 @@ import { BillsComponent } from 'src/app/modules/bills/bills.component';
 import { BillDetailComponent } from 'src/app/modules/bills/bill-detail/bill-detail.component';
 import { CommentsComponent } from 'src/app/modules/comments/comments.component';
 import { ReplyCommentsComponent } from 'src/app/modules/comments/reply-comments/reply-comments.component';
-
+import { SalesComponent } from 'src/app/modules/dashboard/sales/sales.component';
+import { BestSellersComponent } from 'src/app/modules/dashboard/best-sellers/best-sellers.component';
+import { ProfitsComponent } from 'src/app/modules/dashboard/profits/profits.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +109,9 @@ import { ReplyCommentsComponent } from 'src/app/modules/comments/reply-comments/
     BillDetailComponent,
     CommentsComponent,
     ReplyCommentsComponent,
+    SalesComponent,
+    BestSellersComponent,
+    ProfitsComponent,
   ],
   imports: [
     CommonModule,

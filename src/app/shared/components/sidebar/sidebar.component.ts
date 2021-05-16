@@ -7,10 +7,15 @@ import { NgAuthService } from 'src/app/services/ng-auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  user: any;
   constructor(public ngAuthService: NgAuthService) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
-
+  getUser() {
+    const user = JSON.parse(localStorage.getItem('userToken'));
+    this.user = user;
+    console.log("this.usr: ", this.user);
+  }
 }

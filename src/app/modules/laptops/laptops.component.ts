@@ -52,6 +52,7 @@ export class LaptopsComponent implements OnInit {
       cate_id: item.cate_id,
       brand_id: item.brand_id,
       cpu: item.cpu,
+      inputPrice: item.inputPrice,
       price: item.price,
       salePrice: item.salePrice,
       quantity: item.quantity,

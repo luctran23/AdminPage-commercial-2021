@@ -1,0 +1,46 @@
+<div class="container">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <h1>Sản phẩm bán chạy</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-md-5" style="text-align: center;">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Chọn ngày</mat-label>
+                <input matInput [matDatepicker]="picker1" #pick1>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Chọn ngày</mat-label>
+                <input matInput [matDatepicker]="picker2" #pick2>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-2" style="display: flex; align-items: center;">
+            <button type="button" class="btn btn-sm bg-danger mx-2" (click)="getTimeRange(pick1.value, pick2.value)">
+                Xử lý
+            </button>
+        </div>
+    </div>
+    <section class="content px-2">
+        <p style="font-weight: 500; font-size: 20px;">Top sản phẩm bán chạy nhất: </p>
+        <div *ngIf="products.length == 0" style="text-align: center;">
+            Không có dữ liệu để hiển thị
+        </div>
+        <div *ngFor="let prod of products, let i = index">
+            <p style="margin-top: 10px; margin-bottom: 2px;">{{i + 1 }} . {{prod.name}}</p>
+            <div class="wrapper">
+                <div class="skills css" [style.width]="prod.quantity*100/totalSoldProds + '%'">{{prod.quantity*100/totalSoldProds| number }} %</div>
+            </div>
+        </div>
+    </section>
+</div>

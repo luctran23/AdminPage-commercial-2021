@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
   }
   getAllUsers() {
     this.usersService.getAllItems().subscribe(data => {
-      this.users = data;
+      this.users = data.reverse();
       this.totalRecords = data.length;
     })
   }

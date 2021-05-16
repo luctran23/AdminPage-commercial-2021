@@ -51,6 +51,7 @@ export class CamerasComponent implements OnInit {
       name: item.name , 
       cate_id: item.cate_id,
       brand_id: item.brand_id,
+      inputPrice: item.inputPrice,
       price: item.price,
       salePrice: item.salePrice,
       quantity: item.quantity,

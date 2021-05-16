@@ -23,10 +23,13 @@ import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { EmailVerificationComponent } from './modules/email-verification/email-verification.component';
 import { AuthGuard } from "../app/services/auth.guard";
 import { CommentsComponent } from './modules/comments/comments.component';
+import { SalesComponent } from './modules/dashboard/sales/sales.component';
+import { BestSellersComponent } from './modules/dashboard/best-sellers/best-sellers.component';
+import { ProfitsComponent } from './modules/dashboard/profits/profits.component';
 
 const routes: Routes = [
   
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '',
     component: DefaultComponent,
@@ -46,6 +49,9 @@ const routes: Routes = [
       { path: 'bills', component: BillsComponent },
       { path: 'bills/:id', component: BillDetailComponent },
       { path: 'comments', component: CommentsComponent },
+      { path: 'sales', component: SalesComponent },
+      { path: 'best-sellers', component: BestSellersComponent },
+      { path: 'profits', component: ProfitsComponent }
     ]
   },
   {

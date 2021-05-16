@@ -1,0 +1,71 @@
+<div class="container">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <h1>Doanh số bán hàng</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+    <div class="row">
+        <div class="col-md-5" style="text-align: center;">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Chọn ngày</mat-label>
+                <input matInput [matDatepicker]="picker1" #pick1>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Chọn ngày</mat-label>
+                <input matInput [matDatepicker]="picker2" #pick2>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="col-md-2" style="display: flex; align-items: center;">
+            <button type="button" class="btn btn-sm bg-danger mx-2" (click)="getTimeRange(pick1.value, pick2.value)">
+                Xử lý
+              </button>
+        </div>
+    </div>
+    <section class="content px-2">
+        <p style="font-weight: 500;">Số sản phẩm đã bán: <span>{{totalSoldProds}}</span></p>
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên</th>
+                                <th>Ảnh</th>
+                                <th>Giá nhập</th>
+                                <th>Giá bán</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let item of products, let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.name}}</td>
+                                <td>
+                                    <img [src]="item.descriptionImages" alt="img" width="20px" height="20px">
+                                </td>
+                                <td>{{item.inputPrice}}</td>
+                                <td>{{item.salePrice}}</td>
+                                <td>{{item.quantity}}</td>  
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <h4>Lợi nhuận: {{profits |currency: 'VND'}}</h4>
+</div>

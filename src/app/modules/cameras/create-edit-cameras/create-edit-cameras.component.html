@@ -54,10 +54,10 @@
                 </mat-form-field>
             </div>
             <label class="col-md-2 col-form-label">
-                Description:
+                Inputprice
             </label>
             <div class="col-md-4">
-                <input type="text" class=" form-control" name="description" [(ngModel)]="data.description" required />
+                <input type="text" class=" form-control" name="inputPrice" [(ngModel)]="data.inputPrice" required />
             </div>
         </div>
         <div class="form-group row required">
@@ -68,10 +68,10 @@
                 <input type="text" class=" form-control" name="quantity" [(ngModel)]="data.quantity" required />
             </div>
             <label class="col-md-2 col-form-label">
-                Origin:
+                Description:
             </label>
             <div class="col-md-4">
-                <input type="text" class=" form-control" name="origin" [(ngModel)]="data.origin" required />
+                <input type="text" class=" form-control" name="description" [(ngModel)]="data.description" required />
             </div>
         </div>
         <div class="form-group row required">
@@ -81,6 +81,12 @@
             <div class="col-md-4">
                 <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image"
                     autocomplete="off" />
+            </div>
+            <label class="col-md-2 col-form-label">
+                Origin:
+            </label>
+            <div class="col-md-4">
+                <input type="text" class=" form-control" name="origin" [(ngModel)]="data.origin" required />
             </div>
         </div>
     </div>

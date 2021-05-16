@@ -19,7 +19,7 @@ export interface User {
 
 export class NgAuthService {
     userState: any;
-
+  
     constructor(
       public afs: AngularFirestore,
       public afAuth: AngularFireAuth,
@@ -40,11 +40,14 @@ export class NgAuthService {
     }
   
     SignIn(email, password) {
+      
       return this.afAuth.signInWithEmailAndPassword(email, password)
         .then((result) => {
-          this.ngZone.run(() => {
-            this.router.navigate(['home']);
-          });
+          console.log('You are Successfully signed up!', result);
+          this.router.navigate(['/home']);
+          // this.ngZone.run(() => {
+          //   this.router.navigate(['home']);
+          // });
           this.SetUserData(result.user);
         }).catch((error) => {
           this.toastr.error(error.message, "Warning: ");
@@ -79,10 +82,12 @@ export class NgAuthService {
   
     get isLoggedIn(): boolean {
       const user = JSON.parse(localStorage.getItem('user'));
-      return (user !== null && user.emailVerified !== false) ? true : false;
+      return (user !== null) ? true : false;
     }
   
     GoogleAuth() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      console.log("user2: ", user);
       return this.AuthLogin(new auth.GoogleAuthProvider());
     }
   

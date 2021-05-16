@@ -53,6 +53,7 @@ export class PhonesComponent implements OnInit {
       cate_id: item.cate_id,
       brand_id: item.brand_id,
       descriptionImages: item.descriptionImages,
+      inputPrice: item.inputPrice,
       price: item.price,
       salePrice: item.salePrice,
       quantity: item.quantity,

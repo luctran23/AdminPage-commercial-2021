@@ -15,6 +15,11 @@ export class AccountsComponent implements OnInit {
   totalRecords: number;
   page: number = 1;
   searchText;
+  positions = [
+    { value: 0, name: "Staff"},
+    { value: 1, name: "Manager"}
+  ]
+  user: any;
   constructor(
     private accountsService: AccountsService,
     public dialog: MatDialog,
@@ -25,9 +30,12 @@ export class AccountsComponent implements OnInit {
     this.getAllAccounts();
   }
   getAllAccounts() {
+    const user = JSON.parse(localStorage.getItem('userToken'));
     this.accountsService.getAllItems().subscribe(data => {
       this.accounts = data;
       this.totalRecords = data.length;
+      this.user = this.accounts.find(item => item.username == user.username);
+      console.log("user", this.user);
     })
   }
   createItem() {

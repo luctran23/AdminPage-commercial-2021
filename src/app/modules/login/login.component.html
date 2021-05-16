@@ -2,33 +2,33 @@
   <div class="displayTableCell">
 
     <div class="authBlock">
-      <h3>Signin</h3>
+      <h3>Đăng nhập</h3>
       <div class="formGroup">
-        <input type="text" class="form-control" placeholder="Username" #userName required>
+        <input type="text" class="form-control" placeholder="Tên đăng nhập" #userName required>
       </div>
 
       <div class="formGroup">
-        <input type="password" class="form-control" placeholder="Password" #userPassword required>
+        <input type="password" class="form-control" placeholder="Mật khẩu" #userPassword required>
       </div>
 
       <div class="formGroup">
-        <input type="button" class="btn btn-primary btn-block" value="Sign in"
-          (click)="ngAuthService.SignIn(userName.value, userPassword.value)">
+        <input type="button" class="btn btn-primary btn-block" value="Đăng nhập"
+          (click)="login(userName.value, userPassword.value)">
       </div>
 
       <div class="formGroup">
         <button type="button" class="btn btn-danger btn-block" (click)="ngAuthService.GoogleAuth()">
-          Log in with Google
+          Đăng nhập với Google
         </button>
       </div>
 
       <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+        <span routerLink="/forgot-password">Quên mật khẩu?</span>
       </div>
     </div>
 
     <div class="redirectToLogin">
-      <span>Not registered yet?<span class="redirect" routerLink="/sign-up"> Register</span></span>
+      <span>Chưa đăng ký?<span class="redirect" routerLink="/sign-up"> Đăng ký</span></span>
     </div>
 
   </div>

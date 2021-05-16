@@ -26,7 +26,7 @@ export class BillDetailComponent implements OnInit {
         this.billDetail = res;
         console.log("res: ", res);
         this.total = res.products.reduce((sum, item) => {
-          return sum + item.price * item.quantity;
+          return sum + item.salePrice * item.quantity;
         },0);
       });
     });

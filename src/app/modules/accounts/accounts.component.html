@@ -5,8 +5,8 @@
           <div class="col-6">
             <h1>Accounts</h1>
           </div>
-          <div class="col-6 text-right">
-            <a href="javascript:;" class="btn bg-blue" (click)="createItem()">
+          <div class="col-6 text-right" >
+            <a href="javascript:;" class="btn bg-blue" (click)="createItem()" *ngIf="user.position == 1">
               <i class="fa fa-plus-square"></i>
               Create
             </a>
@@ -24,7 +24,7 @@
                   <i class="fas fa-search"></i>
                 </button>
               </div>
-              <input type="text" class="form-control" name="keyword" [(ngModel)]="searchText" />
+              <input type="text" class="form-control" name="keyword"  [(ngModel)]="searchText" />
             </div>
           </div>
           <div class="card-body table-responsive p-0">
@@ -34,7 +34,8 @@
                   <th>No</th>
                   <th>Username</th>
                   <th>Password</th>
-                  <th style="width: 200px;">Actions</th>
+                  <th>Position</th>
+                  <th *ngIf="user.position == 1" style="width: 200px;">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,8 +43,9 @@
                   *ngFor="let item of accounts| filter:searchText | paginate: { id: 'items_pagination', itemsPerPage: 5, currentPage: page, totalItems: totalRecords}">
                   <td>{{ accounts.indexOf(item) + 1}}</td>
                   <td>{{ item.username }}</td>
-                  <td>{{ hidePassword(item.password) }}</td>
-                  <td>
+                  <td>{{ item.password.slice(0, 10) }}...</td>
+                  <td>{{positions[item.position].name}}</td>
+                  <td *ngIf="user.position == 1">
                     <button type="button" class="btn btn-sm bg-secondary" (click)="editItem(item)">
                       <i class="fas fa-pencil-alt"></i>
                       Edit

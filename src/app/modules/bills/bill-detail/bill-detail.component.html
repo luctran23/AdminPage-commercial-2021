@@ -48,15 +48,9 @@
                                 <td>
                                     <img [src]="item.descriptionImages[0]" alt="img" width="20px" height="20px">
                                 </td>
-                                <td>{{ item.price  }}</td>
+                                <td>{{ item.salePrice  }}</td>
                                 <td>{{ item.quantity }}</td>
                                 <td>{{ item.price * item.quantity }}</td>
-                                <!-- <td>
-                                    <button type="button" class="btn btn-sm bg-danger mx-2" (click)="deleteItem(item)">
-                                        <i class="fas fa-trash"></i>
-                                        Delete
-                                    </button>
-                                </td> -->
                             </tr>
                             <tr>
                                 <td><b>Total: </b></td>
