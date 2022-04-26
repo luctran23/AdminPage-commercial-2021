@@ -1,0 +1,43 @@
+<div>
+  <h3>Điền thông tin</h3>
+  <mat-form-field style="width: 100%">
+    <mat-label>Tiêu đề: </mat-label>
+    <input matInput [(ngModel)]="data.title" />
+  </mat-form-field>
+  <br />
+  <!-- <mat-form-field style="width: 100%"> -->
+    <mat-label>Nội dung: </mat-label>
+    <editor
+    [(ngModel)]="data.content"
+      apiKey="8dnz21e4a9eovwdg61omqsv23m5ledzxdwwvbq3ai6t1ik7b"
+      [init]="{
+        icons: 'material',
+        skin: 'borderless',
+        plugins: 'wordcount',
+        menubar: false,
+        min_height: 150
+      }"
+    ></editor>
+  <!-- </mat-form-field> -->
+
+  <label>Ảnh: </label>
+  <input
+    type="file"
+    id="file"
+    #userPhoto
+    (change)="onFileSelected($event)"
+    name="image"
+    autocomplete="off"
+  />
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Hủy</button>
+  <button
+    mat-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+    [disabled]="isDisabled"
+  >
+    Ok
+  </button>
+</div>

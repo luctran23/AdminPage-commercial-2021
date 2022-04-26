@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { CreateEditAccountsComponent } from './create-edit-accounts/create-edit-accounts.component';
-import { AccountsService } from '../../services/accounts.service';
+import { NewsService } from 'src/app/services/news.service';
+import { CreateEditNewsComponent } from './create-edit-news/create-edit-news.component';
+
 
 @Component({
-  selector: 'app-accounts',
-  templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.css']
+  selector: 'app-news',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.css']
 })
-export class AccountsComponent implements OnInit {
-
-  accounts = [];
+export class NewsComponent implements OnInit {
+  news = [];
   totalRecords: number;
   page: number = 1;
   searchText;
-  positions = [
-    { value: 0, name: "Nhân viên"},
-    { value: 1, name: "Quản lý"}
-  ]
-  user: any;
   constructor(
-    private accountsService: AccountsService,
+    private newsService: NewsService,
     public dialog: MatDialog,
     private toastr: ToastrService
   ) { }
@@ -31,22 +26,23 @@ export class AccountsComponent implements OnInit {
   }
   getAllAccounts() {
     const user = JSON.parse(localStorage.getItem('userToken'));
-    this.accountsService.getAllItems().subscribe(data => {
-      this.user = data.find(item => item.username == user.username);
-      this.accounts = data.filter(item => item.username !== this.user.username);
+    this.newsService.getAllItems().subscribe(data => {
+      this.news = data;
       this.totalRecords = data.length;
     })
   }
   createItem() {
-    let item = {};
+    let item = {} as any;
+    item.time = new Date();
     this.openDialog(item);
   }
   editItem(item) {
+    item.time = new Date();
     this.openDialog(item);
   }
   deleteItem(item) {
     if (confirm('Delete this item?'))
-      this.accountsService.deleteItem(item).subscribe(res => {
+      this.newsService.deleteItem(item).subscribe(res => {
         this.toastr.info('Delete item succesfully', 'Notification');
         this.getAllAccounts();
       });
@@ -54,23 +50,26 @@ export class AccountsComponent implements OnInit {
   openDialog(item) {
     let obj = {
       _id: item._id,
-      username: item.username,
-      password: item.password
+      title: item.title,
+      content: item.content,
+      time: item.time,
+      image: item.image
     };
-    const dialogRef = this.dialog.open(CreateEditAccountsComponent, {
-      data: obj
+    const dialogRef = this.dialog.open(CreateEditNewsComponent, {
+      data: obj,
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         if (item._id == null) {
-          this.accountsService.createItem(result).subscribe(res => {
+          this.newsService.createItem(result).subscribe(res => {
             this.toastr.success('Create item succesfully', 'Notification');
             this.getAllAccounts();
           })
         }
         else {
-          this.accountsService.updateItem(result).subscribe(res => {
+          this.newsService.updateItem(result).subscribe(res => {
             console.log(res);
             this.toastr.success('Update item succesfully', 'Notification');
             this.getAllAccounts();
@@ -82,8 +81,4 @@ export class AccountsComponent implements OnInit {
   refresh() {
     this.getAllAccounts();
   }
-  hidePassword(str): string {
-    return str.replace(/\w/g, '*');
-  }
-  
 }

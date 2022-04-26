@@ -9,12 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgAuthService } from "../app/services/ng-auth.service";
-import { EditStatusComponent } from './modules/bills/edit-status/edit-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditStatusComponent,
     
   ],
   imports: [
@@ -25,7 +23,7 @@ import { EditStatusComponent } from './modules/bills/edit-status/edit-status.com
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [NgAuthService],
   bootstrap: [AppComponent]

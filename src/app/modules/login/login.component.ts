@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountLoginService } from 'src/app/services/account-login.service';
 import { NgAuthService } from 'src/app/services/ng-auth.service';
 
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(public ngAuthService: NgAuthService,
     private accountLoginService: AccountLoginService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -22,7 +24,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userToken', JSON.stringify(res));
       this.router.navigate(['home']);
     },
-    err => console.log('HTTP Error', err),
+    err => {
+      this.toastr.error("Thông tin đăng nhập chưa chính xác", "Lỗi");
+    },
     () => console.log('HTTP request completed.'));
   }
 }

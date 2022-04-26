@@ -1,18 +1,18 @@
 <form class="form-horizontal" autocomplete="off" #inputForm="ngForm">
     <div class="card-header">
         <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
-        <h3>Create/edit </h3>
+        <h3>Điền thông tin </h3>
     </div>
     <div class="modal-body">
         <div class="form-group row required">
             <label class="col-md-2 col-form-label">
-                Name:
+                Tên:
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="name" [(ngModel)]="data.name" required />
             </div>
             <label class="col-md-2 col-form-label">
-                Price
+                Giá:
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="price" [(ngModel)]="data.price" required />
@@ -20,7 +20,7 @@
         </div>
         <div class="form-group row required ">
             <label class="col-md-2 col-form-label " for="account ">
-                Category
+                Danh mục
             </label>
             <div class="col-md-4 ">
                 <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
@@ -33,7 +33,7 @@
                 </mat-form-field>
             </div>
             <label class="col-md-2 col-form-label">
-                Saleprice
+                Giá khuyến mại
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="salePrice" [(ngModel)]="data.salePrice" required />
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group row required ">
             <label class="col-md-2 col-form-label " for="account ">
-                Brand
+                Thương hiệu
             </label>
             <div class="col-md-4 ">
                 <mat-form-field style="width: 100%; height: 38px;" appearance="outline">
@@ -54,7 +54,7 @@
                 </mat-form-field>
             </div>
             <label class="col-md-2 col-form-label">
-                Inputprice
+                Giá nhập
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="inputPrice" [(ngModel)]="data.inputPrice" required />
@@ -62,13 +62,13 @@
         </div>
         <div class="form-group row required">
             <label class="col-md-2 col-form-label">
-                Quantity
+                Số lượng
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="quantity" [(ngModel)]="data.quantity" required />
             </div>
             <label class="col-md-2 col-form-label">
-                Description:
+                Mô tả:
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="description" [(ngModel)]="data.description" required />
@@ -76,14 +76,14 @@
         </div>
         <div class="form-group row required">
             <label class="col-md-2 col-form-label">
-                Images:
+                Ảnh:
             </label>
             <div class="col-md-4">
                 <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image"
                     autocomplete="off" />
             </div>
             <label class="col-md-2 col-form-label">
-                Origin:
+                Nguồn gốc:
             </label>
             <div class="col-md-4">
                 <input type="text" class=" form-control" name="origin" [(ngModel)]="data.origin" required />
@@ -92,8 +92,8 @@
     </div>
     <div class="mat-dialog-actions">
         <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close
-            (click)="onNoClick()">Cancel</button>
+            (click)="onNoClick()">Hủy</button>
         <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="inputForm.form.invalid"
-            class="saving-btn" mat-button cdkFocusInitial>Save</button>
+            class="saving-btn" mat-button cdkFocusInitial>Lưu</button>
     </div>
 </form>

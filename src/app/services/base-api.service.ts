@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export abstract class BaseApiService {
-   protected baseUrl = 'http://192.168.1.162:3000/';
-  //protected baseUrl = 'http://localhost:3001/';
+  //protected baseUrl = 'http://192.168.1.162:3001/';
+  protected baseUrl = 'http://localhost:3001/';
   protected get rootUrl() {
     return this.baseUrl +'api/' + this.changeUrl();
 }

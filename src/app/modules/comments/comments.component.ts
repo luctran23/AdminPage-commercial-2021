@@ -26,7 +26,7 @@ export class CommentsComponent implements OnInit {
   }
   getAllComments() {
     this.commentsService.getAllItems().subscribe(data => {
-      this.comments = data.filter(item => item.parent_id == "0");
+      this.comments = data.filter(item => item.parent_id == "0").reverse();
       this.totalRecords = this.comments.length;
     })
   }

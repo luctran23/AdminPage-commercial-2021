@@ -1,6 +1,6 @@
 <div mat-dialog-content>
     <mat-form-field appearance="outline">
-        <mat-label>Status</mat-label>
+        <mat-label>Tình trạng</mat-label>
         <mat-select [(ngModel)]="data.status" name="status">
           <mat-option *ngFor="let item of status" [value]="item.value">
             {{item.name}}
@@ -9,5 +9,5 @@
       </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onNoClick()">Hủy</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Lưu</button>

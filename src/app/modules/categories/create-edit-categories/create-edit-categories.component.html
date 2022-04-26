@@ -1,12 +1,12 @@
 <form class="form-horizontal" autocomplete="off">
     <div class="card-header">
         <!-- <h3 *ngIf="!isEdit">{{'m4_child1.createTitle' | translate}}</h3> -->
-        <h3>Create/edit </h3>
+        <h3>Điền thông tin</h3>
     </div>
     <div class="modal-body">
         <div class="form-group row required">
             <label class="col-md-3 col-form-label" for="holdername">
-                Name
+                Tên danh mục: 
             </label>
             <div class="col-md-9">
                 <input type="text" class=" form-control" 
@@ -16,7 +16,7 @@
         
     </div>
     <div class="mat-dialog-actions">
-        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close (click)="onNoClick()">Cancel</button>
-        <button mat-raised-button color="primary" [mat-dialog-close]="data" class="saving-btn" mat-button  cdkFocusInitial>Save</button>
+        <button class="btn btn-default cancel-banks" mat-raised-button mat-dialog-close (click)="onNoClick()">Hủy</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" class="saving-btn" mat-button  cdkFocusInitial>Lưu</button>
     </div>
 </form>

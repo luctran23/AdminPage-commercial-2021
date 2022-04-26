@@ -30,7 +30,7 @@ export class BestSellersComponent implements OnInit {
       const s = moment(new Date(startDate).toISOString());
       const e = moment(new Date(endDate).toISOString());
       if (!s.isBefore(e) || startDate == undefined || endDate == undefined) {
-        this.toastr.error('The start date must be before the end date', 'Error');
+        this.toastr.error('Ngày bắt đầu phải nhỏ hơn ngày kết thúc', 'Lỗi');
         return;
       }
       this.salesService.getProdByDateRange(s.format('YYYY-MM-DD'), e.format('YYYY-MM-DD')).subscribe(data => {
@@ -41,7 +41,7 @@ export class BestSellersComponent implements OnInit {
       })
 
     } catch (err) {
-      this.toastr.error(err, 'Error');
+      this.toastr.error(err, 'Lỗi');
     }
 
   }

@@ -8,7 +8,7 @@
           <div class="col-6 text-right">
             <a href="javascript:;" class="btn bg-blue" (click)="createItem()">
               <i class="fa fa-plus-square"></i>
-              Create
+              Tạo mới
             </a>
           </div>
         </div>
@@ -31,13 +31,13 @@
             <table class="table table-hover text-nowrap">
               <thead class="bg-light">
                 <tr>
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Category</th>
-                  <th style="width: 200px;">Actions</th>
+                  <th>STT</th>
+                  <th>Tên</th>
+                  <th>Ảnh</th>
+                  <th>Giá</th>
+                  <th>Số lượng</th>
+                  <th>Danh mục</th>
+                  <th style="width: 200px;">Thao tác</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,11 +54,11 @@
                   <td>
                     <button type="button" class="btn btn-sm bg-secondary" (click)="editItem(item)">
                       <i class="fas fa-pencil-alt"></i>
-                      Edit
+                      Sửa
                     </button>
                     <button type="button" class="btn btn-sm bg-danger mx-2" (click)="deleteItem(item)">
                       <i class="fas fa-trash"></i>
-                      Delete
+                      Xóa
                     </button>
                   </td>
                 </tr>

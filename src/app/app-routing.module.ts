@@ -26,6 +26,8 @@ import { CommentsComponent } from './modules/comments/comments.component';
 import { SalesComponent } from './modules/dashboard/sales/sales.component';
 import { BestSellersComponent } from './modules/dashboard/best-sellers/best-sellers.component';
 import { ProfitsComponent } from './modules/dashboard/profits/profits.component';
+import { NewsComponent } from './modules/news/news.component';
+import { NewsDetailComponent } from './modules/news/news-detail/news-detail.component';
 
 const routes: Routes = [
   
@@ -51,7 +53,9 @@ const routes: Routes = [
       { path: 'comments', component: CommentsComponent },
       { path: 'sales', component: SalesComponent },
       { path: 'best-sellers', component: BestSellersComponent },
-      { path: 'profits', component: ProfitsComponent }
+      { path: 'profits', component: ProfitsComponent },
+      { path: 'news', component: NewsComponent },
+      { path: 'news/:id', component: NewsDetailComponent }
     ]
   },
   {

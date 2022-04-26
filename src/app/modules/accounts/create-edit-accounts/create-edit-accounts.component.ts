@@ -9,6 +9,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class CreateEditAccountsComponent implements OnInit {
 
   inputType = "password";
+  positions = [
+    { value: 0, name: "Nhân viên"},
+    { value: 1, name: "Quản lý"}
+  ]
   constructor(public dialogRef: MatDialogRef<CreateEditAccountsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     ) { }

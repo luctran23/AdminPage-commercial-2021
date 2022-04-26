@@ -57,6 +57,7 @@ import { CreateEditBrandsComponent } from 'src/app/modules/brands/create-edit-br
 import { CreateEditPhonesComponent } from 'src/app/modules/phones/create-edit-phones/create-edit-phones.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { EditorModule } from "@tinymce/tinymce-angular";
 import {
   AngularFireStorageModule,
   AngularFireStorageReference,
@@ -80,6 +81,10 @@ import { ReplyCommentsComponent } from 'src/app/modules/comments/reply-comments/
 import { SalesComponent } from 'src/app/modules/dashboard/sales/sales.component';
 import { BestSellersComponent } from 'src/app/modules/dashboard/best-sellers/best-sellers.component';
 import { ProfitsComponent } from 'src/app/modules/dashboard/profits/profits.component';
+import { EditStatusComponent } from 'src/app/modules/bills/edit-status/edit-status.component';
+import { NewsComponent } from 'src/app/modules/news/news.component';
+import { NewsDetailComponent } from 'src/app/modules/news/news-detail/news-detail.component';
+import { CreateEditNewsComponent } from 'src/app/modules/news/create-edit-news/create-edit-news.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +117,10 @@ import { ProfitsComponent } from 'src/app/modules/dashboard/profits/profits.comp
     SalesComponent,
     BestSellersComponent,
     ProfitsComponent,
+    EditStatusComponent,
+    NewsComponent,
+    NewsDetailComponent,
+    CreateEditNewsComponent,
   ],
   imports: [
     CommonModule,
@@ -154,6 +163,7 @@ import { ProfitsComponent } from 'src/app/modules/dashboard/profits/profits.comp
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    EditorModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       positionClass: 'toast-bottom-right',
@@ -200,7 +210,8 @@ import { ProfitsComponent } from 'src/app/modules/dashboard/profits/profits.comp
     MatTooltipModule,
     MatTreeModule,
     MatFormFieldModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    EditorModule,
   ]
 })
 export class DefaultModule { }
